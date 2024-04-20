@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    background-image: linear-gradient(45deg, #0f0f0f 25%, transparent 25%, transparent 50%, #0f0f0f 50%, #0f0f0f 75%, transparent 75%, transparent);
+    background-size: 50px 50px;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Alinear elementos en columna */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    height: 100vh;
+}
+
+.title {
+    color: #ffffff;
+    text-shadow: 0 0 5px #616161, 0 0 10px #626262, 0 0 10px #898989, 0 0 10px rgb(60, 120, 249), 0 0 30px rgb(77, 156, 246), 0 0 40px rgb(46, 146, 246), 0 0 55px rgb(65, 136, 249), 0 0 75px rgb(31, 123, 243);
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+.table-container {
+    display: flex;
+    justify-content: space-around; /* Espaciado uniforme entre tablas */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+table {
+    border-collapse: collapse;
+    width: 30%; /* Ancho de cada tabla */
+    margin: 0 10px; /* Espaciado horizontal entre tablas */
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+th, td {
+    padding: 10px;
+    text-align: center; /* Centrado del contenido */
+    border: 1px solid #ffffff;
+    color: #fff;
+}
+
+button {
+    background-color: #1877d0;
+    /* Azul */
+    color: #000000;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px rgb(10, 57, 196), 0 0 70px rgb(47, 122, 209), 0 0 80px rgb(60, 140, 232);
+}
+
+button:hover {
+    background-color: #007bff;
+}
+
+.return-button {
+    background-color: #ff0000; /* Neon red */
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(34, 0, 255, 0.5);
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgb(211, 0, 28), 0 0 40px rgb(214, 11, 11), 0 0 70px rgb(220, 13, 13), 0 0 80px rgb(209, 13, 13);
+    margin-top: 20px; /* Espaciado superior */
+}
+
+.return-button:hover {
+    background-color: #ff0000; /* Neon red */
+}
+.inline-form {
+    display: inline;
+    /* Otros estilos que desees aplicar a los formularios en línea */
+}
+
+.delete-button,
+.update-button {
+    background-color: #1877d0;
+    color: #000000;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgb(10, 57, 196), 0 0 70px rgb(47, 122, 209), 0 0 80px rgb(60, 140, 232);
+}
+
+.delete-button:hover,
+.update-button:hover {
+    background-color: #007bff;
+}

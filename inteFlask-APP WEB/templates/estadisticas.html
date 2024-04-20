@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estadísticas de Acceso</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/estadisticas.css') }}"> <!-- Estilos personalizados -->
+</head>
+<body style="background-color: rgb(197, 196, 198);">
+    <div class="header">
+        <a href="{{ url_for('añadirusuario') }}" class="button">Salir</a>
+    </div>
+    <form id="eliminar-accesos-form" action="/eliminar_accesos" method="post">
+        <button type="submit" class="button">Eliminar todos los accesos</button>
+    </form>
+    
+    <!-- Contenedor para la gráfica -->
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+   
+    <script>
+        // Asignar variables de Jinja a variables de JavaScript
+        var fechas = {{ fechas | tojson | safe }};
+        var conteos = {{ conteos | tojson | safe }};
+    
+        // Luego puedes usar estas variables de JavaScript directamente
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: fechas,
+                datasets: [{
+                    label: 'Accesos por Fecha',
+                    data: conteos,
+                    backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive:true,
+                maintainAspectRatio: false, 
+                plugins: {
+            zoom: {
+                pan: {
+                    enabled: true,
+                    mode: 'x'
+                },
+                zoom: {
+                    wheel: {
+                        enabled: true
+                    },
+                    pinch: {
+                        enabled: true
+                    },
+                    mode: 'x'
+                }
+            }
+        },
+            scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1 // Esto forzará a que las marcas de graduación vayan de uno en uno.
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

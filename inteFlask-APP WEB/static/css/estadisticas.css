@@ -1,0 +1,33 @@
+  /* Estilo para asegurarte de que el contenedor del canvas es flexible */
+  .chart-container {
+    overflow-x: scroll;
+    position: relative;
+    margin: auto;
+    height: 80vh; /* Ajusta esto según necesites */
+    width: 80vw; /* Ajusta esto según necesites */
+}
+/* Estilo para el botón de Añadir Usuario */
+.add-user-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px; /* Asegura un margen entre el botón y la gráfica */
+}
+
+/* Estilo para el botón de salir y su contenedor */
+.header {
+    width: 100%; /* Ocupa todo el ancho para poder alinear el contenido a la derecha */
+    text-align: left; /* Alinea el botón a la derecha */
+    padding-right: 20px; /* Espacio a la derecha para no pegar el botón al borde */
+}
+
+.button {
+    background-color: purple;
+    color: aliceblue;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}

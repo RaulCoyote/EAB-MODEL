@@ -1,0 +1,66 @@
+body {
+    background-color: black;
+    margin: 0;
+    padding-top: 20px; /* Espacio en la parte superior para no pegar el botón al borde */
+    color: rgb(254, 254, 254); /* Color de texto para todo el cuerpo */
+}
+
+/* Estilo para el botón de salir y su contenedor */
+.header {
+    width: 100%; /* Ocupa todo el ancho para poder alinear el contenido a la derecha */
+    text-align: right; /* Alinea el botón a la derecha */
+    padding-right: 20px; /* Espacio a la derecha para no pegar el botón al borde */
+}
+
+.button {
+    background-color: purple;
+    color: aliceblue;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.button:hover {
+    background-color: rebeccapurple;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Contenedor para los elementos centrales como la lista y los botones */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos hijos horizontalmente */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #1202a4;
+    margin: 10px 0;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Contenedor para los botones debajo de la lista */
+.botones-notificaciones {
+    text-align: center; /* Centrar los botones dentro del div */
+    display: flex; /* Para controlar el espaciado entre botones */
+    justify-content: center; /* Esto centra los botones en su contenedor */
+    width: 100%; /* Hace que el contenedor ocupe todo el ancho disponible */
+}
+
+.botones-notificaciones form,
+.botones-notificaciones button {
+    margin: 0 10px; /* Espacio a los lados de cada botón */
+}

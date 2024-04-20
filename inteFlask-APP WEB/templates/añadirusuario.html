@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Añadir usuario</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/estilousuario.css') }}"> <!-- Estilos personalizados -->
+
+  <!-- Enlaces de estilos -->
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav>
+    <!-- Botón para salir -->
+    <div>
+      <!-- este es el div de la barra para navegar hacia el index el id es sal -->
+      <a href="#" id="sal">Salir</a>
+    </div>
+    <!-- Botón para administrar -->
+    <!-- Nuevo botón para Notificaciones -->
+    <div>
+      <a href="{{ url_for('mostrar_notificaciones') }}" id="notificaciones">Notificaciones</a>
+    </div>
+    <div>
+      <a href="{{ url_for('estadisticas') }}" id="estadisticas">Estadísticas</a>
+    </div>
+    <div>
+      <!-- este es el div de la barra para navegar hacia el lado de administrador el id es admin -->
+      <a href="#" id="admin">Administrar</a>
+    </div>
+  </nav>
+
+   <!-- Contenedor principal -->
+   <div class="container">
+    <!-- Contenedor del formulario -->
+    <div class="form-container">
+     
+      <!-- este es la opcion para los llenados de las opciones las cuales tienen sus id, nombre, correo, contraseña -->
+      <form id="userForm" action="/agregarUsuario" method="post">
+        <input type="text" minlength="4" name="nombre" placeholder="Nombre"  required> <!-- Campo de entrada para el nombre -->
+        <input type="text" minlength="4" name="matricula" placeholder="Matricula" required> <!-- Campo de entrada para el correo -->
+        <input type="password" minlength="4" name="contrasena" placeholder="Contraseña"> <!-- Campo de entrada para la contraseña  Desabilitar-->
+  
+        <input type="text" minlength="4" name="usuario" placeholder="Nombre de Usuario">
+  
+          <div>
+            <button class="option-button" type="submit">Añadir Usuario</button>
+          </div>
+      </form>
+      
+    </div>
+  </div>
+
+  <div>
+    <!-- el boton cancelar tiene el onclick para limpiar lo que es el nombre, correo y contraseña -->
+    <button class="cancel-button" id="cancelar">Cancelar</button> <!-- Botón para cancelar -->
+  </div>
+
+  <!-- Script para añadir funcionalidad -->
+  <script src="{{ url_for('static', filename = 'js/añadir.js') }}"></script>
+  <!-- SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

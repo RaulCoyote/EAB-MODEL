@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/administrar.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Título de la página -->
+        <h1 class="title neon-effect">Administración</h1>
+        
+        <!-- Tabla de usuarios -->
+        <table class="user-table neon-effect">
+            <caption>Usuarios</caption> <!-- Título de la tabla -->
+            <thead>
+                <tr>
+                    <th>Nombre</th> <!-- Encabezado de la columna -->
+                    <th>Usuario</th> <!-- Encabezado de la columna -->
+                    <th>Matrícula</th>
+                    <th>Eliminar</th>
+                    <th>Actualizar</th> <!-- Encabezado de la columna para acciones -->
+                    <!-- Agrega más encabezados según sea necesario -->
+                </tr>
+            </thead>
+     <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.nombre }}</td> <!-- Contenido de la tabla -->
+                    <td>{{ usuario.usuario }}</td>
+                    <td>{{ usuario.matricula }}</td>
+                    <td>
+                        <form action="{{ url_for('eliminar_usuario', id=usuario._id) }}" method="post" class="inline-form">
+                            <button type="submit" class="delete-button">Eliminar</button>
+                        </form>
+                    </td>
+                    <td>   
+                        <form action="{{ url_for('editar_usuario', id=usuario._id) }}" method="post" class="inline-form">
+                            <button type="submit" class="update-button">Actualizar</button>
+                        </form>
+                        
+                    </td>
+                    <!-- Agrega más columnas según sea necesario -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Contenedor del botón de volver -->
+        <div class="button-container">
+            <a href="{{ url_for('añadirusuario') }}" class="return-button neon-effect">Volver</a> <!-- Botón para volver -->
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/administrar.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Agregado -->
+    <title>Notificaciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/notificaciones.css') }}"> <!-- Estilos personalizados -->
+</head>
+<body>
+    <div class="header">
+        <!-- Botón de Salir -->
+        <a href="{{ url_for('añadirusuario') }}" class="button">Salir</a>
+    </div>
+
+    <div class="center-container">
+        <h1>Notificaciones</h1>
+        <ul id="notificaciones-list">
+            {% for notificacion in notificaciones %}
+                <li>{{ notificacion.mensaje }} <button class="eliminar-button" data-id="{{ notificacion.id }}">Eliminar</button></li>
+            {% endfor %}
+        </ul>
+
+        <div class="botones-notificaciones">
+            <form action="{{ url_for('borrar_notificaciones') }}" method="post" onsubmit="return confirmDelete();">
+                <button type="submit" class="button">Borrar Notificaciones</button>
+            </form>
+            <button class="button" onclick="location.reload();">Actualizar</button>
+        </div>
+    </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm("¿Estás seguro de que deseas borrar todas las notificaciones? Esta acción no se puede deshacer.");
+        }
+
+        // Función para eliminar una notificación
+        function eliminarNotificacion(id) {
+            fetch('/eliminar_notificacion/' + id, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Eliminar la notificación de la lista
+                    const notificacionElement = document.querySelector(`[data-id="${id}"]`).parentNode;
+                    notificacionElement.parentNode.removeChild(notificacionElement);
+                } else {
+                    alert('Error al eliminar la notificación');
+                }
+            })
+            .catch(error => {
+                console.error('Error al eliminar la notificación:', error);
+                alert('Error al eliminar la notificación');
+            });
+        }
+
+        // Asignar eventos a los botones de eliminar
+        function asignarEventosEliminar() {
+            document.querySelectorAll('.eliminar-button').forEach(button => {
+                button.removeEventListener('click', eliminarNotificacionHandler); // Remover el evento existente
+                button.addEventListener('click', eliminarNotificacionHandler);
+            });
+        }
+
+        function eliminarNotificacionHandler() {
+            const id = this.getAttribute('data-id');
+            if (confirm('¿Estás seguro de que deseas eliminar esta notificación?')) {
+                eliminarNotificacion(id);
+            }
+        }
+
+        asignarEventosEliminar(); // Asignar eventos al cargar la página
+    </script>
+</body>
+</html>

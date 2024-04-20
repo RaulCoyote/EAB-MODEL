@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  background-image: linear-gradient(45deg, #000000 100%, transparent 25%, transparent 50%, #2c2c2c 50%, #0f0f0f 75%, transparent 75%, transparent);
+  background-size: 50px 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  padding: 15px;
+  box-shadow: 0 0 30px #73a5fb;
+}
+
+nav a {
+  margin: 0 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #38b9f1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección de flexión a columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+  margin-top: 25px;
+  min-height: calc(100vh - 150px);
+}
+
+.container h2 {
+  margin: 0 70px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  width: 40%;
+  background-color: #661dc0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px #73a5fb;
+  margin-top: 20px; /* Agrega margen superior */
+}
+
+.form-container input {
+  margin-bottom: 30px;
+  padding: 10px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-bottom: 5px solid #73a5fb;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-container input:focus {
+  border-bottom-color: #3e0ac1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 40%; /* Establece el ancho del contenedor de botones igual al formulario */
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+.cancel-button {
+  background-color: #73a5fb;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 250px; /* Mueve el botón de cancelar a la izquierda */
+}
+
+.add-button {
+  background-color: #73a5fb;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 250px; /* Mueve el botón de añadir a la derecha */
+  margin-top: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Apila los elementos en dispositivos más pequeños */
+    align-items: center; /* Centra los elementos */
+  }
+}
+
+/* Estilos para el nuevo contenedor */
+.option-container {
+  width: 40%;
+  background-color: #661dc0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px #73a5fb;
+  margin-top: 20px; /* Agrega margen superior */
+}
+
+.option-container h2 {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.option-button {
+  background-color: #73a5fb;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option-button:hover {
+  background-color: #0f0f0f;
+}
